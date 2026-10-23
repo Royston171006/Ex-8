@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews Blog</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background: #16213e;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        .search-box {
+            text-align: center;
+            padding: 25px;
+        }
+
+        .search-box input {
+            width: 80%;
+            max-width: 450px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 25px;
+        }
+
+        .movie-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px #ccc;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .poster {
+            height: 180px;
+            background: #222;
+            color: #ffcc00;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .movie-info {
+            padding: 20px;
+        }
+
+        .movie-info h2 {
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+
+        .rating {
+            color: #e6a800;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .movie-info p {
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background: #e94560;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #c72c48;
+        }
+
+        .review {
+            display: none;
+            margin-top: 12px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 8px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🎬 Movie Reviews Blog</h1>
+        <p>Your destination for movie reviews and ratings</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#movies">Movies</a>
+        <a href="#about">About</a>
+    </nav>
+
+    <section class="search-box" id="home">
+        <input
+            type="text"
+            id="search"
+            placeholder="Search your favourite movie..."
+            onkeyup="searchMovies()"
+        >
+    </section>
+
+    <main class="container" id="movies">
+
+        <div class="movie-card">
+            <div class="poster">VIKRAM</div>
+            <div class="movie-info">
+                <h2>Vikram</h2>
+                <div class="rating">⭐ 9/10</div>
+                <p>A thrilling action movie with powerful performances and exciting scenes.</p>
+                <button onclick="toggleReview(this)">Read Review</button>
+                <div class="review">
+                    An engaging action thriller with excellent performances,
+                    impressive action sequences, and a gripping story.
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">MASTER</div>
+            <div class="movie-info">
+                <h2>Master</h2>
+                <div class="rating">⭐ 8/10</div>
+                <p>An action-packed entertainer featuring a teacher fighting crime.</p>
+                <button onclick="toggleReview(this)">Read Review</button>
+                <div class="review">
+                    The film delivers entertaining action, memorable music,
+                    and an interesting clash between the lead characters.
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">LEO</div>
+            <div class="movie-info">
+                <h2>Leo</h2>
+                <div class="rating">⭐ 8.5/10</div>
+                <p>A gripping action thriller filled with suspense and mystery.</p>
+                <button onclick="toggleReview(this)">Read Review</button>
+                <div class="review">
+                    Leo offers intense action, stylish visuals, and a suspenseful
+                    storyline for fans of action thrillers.
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-card">
+            <div class="poster">JAILER</div>
+            <div class="movie-info">
+                <h2>Jailer</h2>
+                <div class="rating">⭐ 8.5/10</div>
+                <p>A retired jailer's action-filled journey to protect his family.</p>
+                <button onclick="toggleReview(this)">Read Review</button>
+                <div class="review">
+                    The movie combines dramatic moments, stylish action,
+                    and entertaining performances.
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <section id="about" style="text-align:center; padding:30px;">
+        <h2>About Our Blog</h2>
+        <p style="margin-top:10px;">
+            We share movie reviews, ratings, and recommendations
+            to help you choose your next movie.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Movie Reviews Blog | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function toggleReview(button) {
+            const review = button.nextElementSibling;
+
+            if (review.style.display === "block") {
+                review.style.display = "none";
+                button.textContent = "Read Review";
+            } else {
+                review.style.display = "block";
+                button.textContent = "Hide Review";
+            }
+        }
+
+        function searchMovies() {
+            const input = document.getElementById("search")
+                .value.toLowerCase();
+
+            const movies = document.querySelectorAll(".movie-card");
+
+            movies.forEach(function(movie) {
+                const title = movie.querySelector("h2")
+                    .textContent.toLowerCase();
+
+                movie.style.display = title.includes(input)
+                    ? ""
+                    : "none";
+            });
+        }
+    </script>
+
+</body>
+</html>
+
